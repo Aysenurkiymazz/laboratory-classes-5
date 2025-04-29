@@ -1,14 +1,15 @@
 const express = require("express");
-
-const productsController = require("../controllers/productsController");
-
 const router = express.Router();
+const productsController = require("../controllers/productsController");  // Controller'ı doğru import ettik
 
-router.get("/", productsController.getProductsView);
-router.get("/add", productsController.getAddProductView);
-router.post("/add", productsController.addNewProduct);
-router.get("/new", productsController.getNewProductView);
-router.get("/:name", productsController.getProductView);
-router.delete("/:name", productsController.deleteProduct);
+// Ürün ekleme sayfası
+router.get("/add", productsController.getAddProductView);  // Ürün ekleme sayfası için yönlendirme
+
+// Ürün ekleme işlemi
+router.post("/add", productsController.addNewProduct);  // Ürün ekleme işlemi için POST isteği
+
+// Yeni ürün sayfası
+router.get("/new", productsController.getNewProductView);  // Yeni eklenen ürünü gösteren sayfa
 
 module.exports = router;
+
